@@ -10,6 +10,7 @@ export type Novel = {
   revisedAt: string
   title: string
   content: string
+  abstract: string
 }
 
 export type NovelResponse = {
@@ -51,7 +52,7 @@ export type IllustResponse = {
   totalCount: number
   offset: number
   limit: number
-  contents: Novel[]
+  contents: Illust[]
 }
 
 export const getIllustraitons = async (queries?: MicroCMSQueries) => {
@@ -65,7 +66,7 @@ export const getIllustraitonDetail = async (
   contentId: string,
   queries?: MicroCMSQueries
 ) => {
-  return await client.getListDetail<Novel>({
+  return await client.getListDetail<Illust>({
     endpoint: 'illustrations',
     contentId,
     queries,

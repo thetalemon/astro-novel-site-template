@@ -12,6 +12,7 @@
   "dependencies": {
     "@fontsource/kiwi-maru": "5.0.3",
     "astro": "2.6.3",
+    "dayjs": "1.11.8",
     "microcms-js-sdk": "2.5.0",
     "sass": "1.63.3"
   }

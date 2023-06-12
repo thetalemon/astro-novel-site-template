@@ -1,0 +1,42 @@
+---
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout title='My first blog with Astro'>
+  <div class='main'>
+    <h2>管理人について</h2>
+    <div class='about'>
+      <img class='icon' src='/kanrinin.png' />
+      <div>
+        <p>サンプル ハナコです。</p>
+        <p>XXをメインで創っています。</p>
+      </div>
+    </div>
+    <h2>リンク</h2>
+    <ul class='links'>
+      <li>
+        <a href='https://twitter.com/'> Twitter</a>
+      </li>
+      <li>
+        <a href='https://twitter.com/'> Instagram</a>
+      </li>
+    </ul>
+  </div>
+
+  <style lang='scss'>
+    .main {
+      .icon {
+        width: 80px;
+        height: 80px;
+        border-radius: 5px;
+        border: 2px solid #123123;
+      }
+      .about {
+        display: flex;
+        gap: 16px;
+      }
+      .links {
+      }
+    }
+  </style>
+</Layout>

@@ -1,0 +1,133 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import {
+  getCategories,
+  getNovels,
+  getIllustraitons,
+} from '../../library/microcms'
+
+export async function getStaticPaths() {
+  const response = await getCategories({ fields: ['id'] })
+  return response.contents.map((content: any) => ({
+    params: {
+      categoryId: content.id,
+    },
+  }))
+}
+
+const { categoryId } = Astro.params
+const novelList = await getNovels({
+  filters: `category[equals]${categoryId}`,
+})
+const illustList = await getIllustraitons({
+  filters: `category[equals]${categoryId}`,
+})
+---
+
+<Layout title='My first blog with Astro'>
+  <h2>illustrations</h2>
+  <ul class='illustList'>
+    {
+      illustList.contents.map((content: any) => (
+        <li>
+          <img src={content.illust.url} alt={content.title} />
+        </li>
+      ))
+    }
+  </ul>
+  <ul class='illustList'>
+    {
+      illustList.contents.map((content: any) => (
+        <li>
+          <img src={content.illust.url} alt={content.title} />
+        </li>
+      ))
+    }
+  </ul>
+  <ul class='illustList'>
+    {
+      illustList.contents.map((content: any) => (
+        <li>
+          <img src={content.illust.url} alt={content.title} />
+        </li>
+      ))
+    }
+  </ul>
+  <ul class='illustList'>
+    {
+      illustList.contents.map((content: any) => (
+        <li>
+          <img src={content.illust.url} alt={content.title} />
+        </li>
+      ))
+    }
+  </ul>
+  <ul class='illustList'>
+    {
+      illustList.contents.map((content: any) => (
+        <li>
+          <img src={content.illust.url} alt={content.title} />
+        </li>
+      ))
+    }
+  </ul>
+  <ul class='illustList'>
+    {
+      illustList.contents.map((content: any) => (
+        <li>
+          <img src={content.illust.url} alt={content.title} />
+        </li>
+      ))
+    }
+  </ul>
+  <ul class='illustList'>
+    {
+      illustList.contents.map((content: any) => (
+        <li>
+          <img src={content.illust.url} alt={content.title} />
+        </li>
+      ))
+    }
+  </ul>
+  <ul class='illustList'>
+    {
+      illustList.contents.map((content: any) => (
+        <li>
+          <img src={content.illust.url} alt={content.title} />
+        </li>
+      ))
+    }
+  </ul>
+  <h2>novels</h2>
+  <ul>
+    {
+      novelList.contents.map((content: any) => (
+        <li>
+          <a href={`/novels/${content.id}`}>{content.title}</a>
+        </li>
+      ))
+    }
+  </ul>
+</Layout>
+
+<style lang='scss'>
+  .illustList {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0;
+    li {
+      border: 2px #123123 solid;
+      &:hover {
+        border-color: #999999;
+      }
+
+      img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+      }
+    }
+  }
+</style>

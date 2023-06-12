@@ -1,0 +1,29 @@
+---
+import '@fontsource/kiwi-maru'
+import Layout from '../layouts/Layout.astro'
+import { getNovels, getCategories } from '../library/microcms'
+const response = await getNovels({ fields: ['id', 'title'] })
+
+const category = await getCategories()
+---
+
+<Layout title='My first blog with Astro'>
+  <div class='main'>
+    更新履歴
+    <p>このさいとはほほげほげほげほげ</p>
+    <ul>
+      {
+        response.contents.map((content: any) => (
+          <li>
+            <a href={`/novels/${content.id}`}>{content.title}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</Layout>
+
+<style lang='scss'>
+  .main {
+  }
+</style>

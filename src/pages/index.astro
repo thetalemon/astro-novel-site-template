@@ -1,14 +1,14 @@
 ---
-import '@fontsource/kiwi-maru'
-import Layout from '../layouts/Layout.astro'
-import { getNovels, getCategories } from '../library/microcms'
-const response = await getNovels({ fields: ['id', 'title'] })
+import "@fontsource/kiwi-maru"
+import Layout from "../layouts/Layout.astro"
+import { getNovels, getCategories } from "../library/microcms"
+const response = await getNovels({ fields: ["id", "title"] })
 
 const category = await getCategories()
 ---
 
-<Layout title='My first blog with Astro'>
-  <div class='main'>
+<Layout title="My first blog with Astro">
+  <div class="main">
     更新履歴
     <p>このさいとはほほげほげほげほげ</p>
     <ul>
@@ -22,8 +22,3 @@ const category = await getCategories()
     </ul>
   </div>
 </Layout>
-
-<style lang='scss'>
-  .main {
-  }
-</style>

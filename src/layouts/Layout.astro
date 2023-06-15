@@ -12,25 +12,25 @@ const { title } = Astro.props
 ---
 
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="en">
   <head>
-    <meta charset='UTF-8' />
-    <meta name='description' content='Astro description' />
-    <meta name='viewport' content='width=device-width' />
-    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-    <meta name='generator' content={Astro.generator} />
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
   <body>
-    <main class='root'>
+    <main class="root">
       <Menu category={category} />
-      <div class='main'>
+      <div class="main">
         <slot />
       </div>
     </main>
   </body>
 </html>
-<style lang='scss'>
+<style lang="scss">
   .root {
     display: flex;
   }
@@ -48,7 +48,7 @@ const { title } = Astro.props
     }
   }
 </style>
-<style is:global lang='scss'>
+<style is:global lang="scss">
   a {
     color: #33bb88;
     text-decoration: none;
@@ -73,8 +73,8 @@ const { title } = Astro.props
     background-color: #f6f6f6;
   }
   code {
-    font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-      DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+    font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New,
+      monospace;
   }
   body {
     margin: 0;

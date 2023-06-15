@@ -7,16 +7,16 @@ export interface Props {
 const { category } = Astro.props
 ---
 
-<div class='hedearArea'>
-  <div class='hedear'><a href='/'>サイト名は、未定。</a></div>
-  <button class='menubutton js-menubutton' type='button'><span></span></button>
-  <div class='mask js-mask'></div>
-  <div class='side'>
-    <div class='titleArea'>
-      <h1 class='titleText'><a href='/'>サイト名は、<br />未定。</a></h1>
+<div class="hedearArea">
+  <div class="hedear"><a href="/">サイト名は、未定。</a></div>
+  <button class="menubutton js-menubutton" type="button"><span></span></button>
+  <div class="mask js-mask"></div>
+  <div class="side">
+    <div class="titleArea">
+      <h1 class="titleText"><a href="/">サイト名は、<br />未定。</a></h1>
     </div>
     <MenuList category={category} />
-    <div class='copyright'>© sample.</div>
+    <div class="copyright">© sample.</div>
   </div>
 </div>
 
@@ -39,7 +39,7 @@ const { category } = Astro.props
   }
 </script>
 
-<style lang='scss'>
+<style lang="scss">
   .hedear {
     position: fixed;
     visibility: hidden;

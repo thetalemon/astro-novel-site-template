@@ -6,9 +6,9 @@ export interface Props {
 const { category } = Astro.props
 ---
 
-<ul class='menuList'>
+<ul class="menuList">
   <li>
-    <a href='/about'>About</a>
+    <a href="/about">About</a>
   </li>
   {
     category.contents.map((content: Category) => (
@@ -19,7 +19,7 @@ const { category } = Astro.props
   }
 </ul>
 
-<style lang='scss'>
+<style lang="scss">
   .menuList {
     border-top: 2px solid #123123;
     list-style: none;

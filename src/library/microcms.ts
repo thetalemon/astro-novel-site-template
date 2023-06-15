@@ -24,10 +24,7 @@ export const getNovels = async (queries?: MicroCMSQueries) => {
   return await client.get<NovelResponse>({ endpoint: 'novels', queries })
 }
 
-export const getNovelDetail = async (
-  contentId: string,
-  queries?: MicroCMSQueries
-) => {
+export const getNovelDetail = async (contentId: string, queries?: MicroCMSQueries) => {
   return await client.getListDetail<Novel>({
     endpoint: 'novels',
     contentId,
@@ -62,10 +59,7 @@ export const getIllustraitons = async (queries?: MicroCMSQueries) => {
   })
 }
 
-export const getIllustraitonDetail = async (
-  contentId: string,
-  queries?: MicroCMSQueries
-) => {
+export const getIllustraitonDetail = async (contentId: string, queries?: MicroCMSQueries) => {
   return await client.getListDetail<Illust>({
     endpoint: 'illustrations',
     contentId,

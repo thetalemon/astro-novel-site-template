@@ -1,5 +1,6 @@
 ---
 import type { CategoryResponse } from '../library/microcms'
+import MenuList from './MenuList.astro'
 export interface Props {
   category: CategoryResponse
 }
@@ -14,18 +15,7 @@ const { category } = Astro.props
     <div class='titleArea'>
       <h1 class='titleText'><a href='/'>サイト名は、<br />未定。</a></h1>
     </div>
-    <ul class='sideList'>
-      <li>
-        <a href='/about'>About</a>
-      </li>
-      {
-        category.contents.map((content: any) => (
-          <li>
-            <a href={`/category/${content.id}`}>{content.name}</a>
-          </li>
-        ))
-      }
-    </ul>
+    <MenuList category={category} />
     <div class='copyright'>© sample.</div>
   </div>
 </div>
@@ -178,47 +168,6 @@ const { category } = Astro.props
           text-decoration: none;
           &::after {
             display: none;
-          }
-        }
-      }
-    }
-    .sideList {
-      border-top: 2px solid #123123;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      li {
-        a {
-          text-align: right;
-          padding: 8px 16px;
-          display: block;
-          text-decoration: none;
-          background: white;
-          width: calc(100% - 16px * 2);
-          border-bottom: 2px solid #123123;
-          color: #000;
-          position: relative;
-          z-index: 0;
-          &::after {
-            display: none;
-          }
-          &::before {
-            display: block;
-            z-index: -1;
-            content: '';
-            background: grey;
-            width: 0;
-            height: 100%;
-            left: 0;
-            top: 0;
-            position: absolute;
-            transition: width 0.2s ease-in-out;
-          }
-          &:hover {
-            color: #fff;
-            &::before {
-              width: 100%;
-            }
           }
         }
       }

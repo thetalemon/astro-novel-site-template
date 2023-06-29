@@ -14,7 +14,6 @@ export async function getStaticPaths() {
 
 const { contentId } = Astro.params
 const blog = await getNovelDetail(contentId as string)
-const date = new Date(blog.publishedAt)
 ---
 
 <Layout title="astro novel site template">

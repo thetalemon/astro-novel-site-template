@@ -1,6 +1,6 @@
 ---
-import type { CategoryResponse } from '../library/microcms'
-import MenuList from './MenuList.astro'
+import type { CategoryResponse } from "../library/microcms"
+import MenuList from "./MenuList.astro"
 export interface Props {
   category: CategoryResponse
 }
@@ -21,26 +21,27 @@ const { category } = Astro.props
 </div>
 
 <script>
-  const button = document.querySelector('.js-menubutton')
-  const mask = document.querySelector('.js-mask')
-  const side = document.querySelector('.side')
-  const header = document.querySelector('.hedear')
+  const button = document.querySelector(".js-menubutton")
+  const mask = document.querySelector(".js-mask")
+  const side = document.querySelector(".side")
+  const header = document.querySelector(".hedear")
   if (button && mask && side && header) {
-    button.addEventListener('click', () => {
-      mask.classList.toggle('active')
-      side.classList.toggle('active')
-      button.classList.toggle('active')
+    button.addEventListener("click", () => {
+      mask.classList.toggle("active")
+      side.classList.toggle("active")
+      button.classList.toggle("active")
     })
-    mask.addEventListener('click', () => {
-      mask.classList.toggle('active')
-      side.classList.toggle('active')
-      button.classList.toggle('active')
+    mask.addEventListener("click", () => {
+      mask.classList.toggle("active")
+      side.classList.toggle("active")
+      button.classList.toggle("active")
     })
   }
 </script>
 
 <style lang="scss">
   .hedear {
+    z-index: 0;
     position: fixed;
     visibility: hidden;
     justify-content: space-between;
@@ -76,7 +77,7 @@ const { category } = Astro.props
     & span,
     & span:before,
     & span:after {
-      content: '';
+      content: "";
       display: block;
       height: 1px;
       width: 24px;
@@ -118,7 +119,7 @@ const { category } = Astro.props
     &.active {
       background: #000;
       opacity: 0.5;
-      content: '';
+      content: "";
       top: 0;
       left: 0;
       width: 100vw;

@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro"
 import { getNovels, getNovelDetail } from "../../library/microcms"
+import { format } from "date-fns"
 
 export async function getStaticPaths() {
   const response = await getNovels({ fields: ["id"] })
@@ -13,12 +14,13 @@ export async function getStaticPaths() {
 
 const { contentId } = Astro.params
 const blog = await getNovelDetail(contentId as string)
+const date = new Date(blog.publishedAt)
 ---
 
 <Layout title="astro novel site template">
   <main>
     <h1 class="title">{blog.title}</h1>
-    <p class="publishedAt">公開日時：{blog.publishedAt}</p>
+    <p class="publishedAt"><time>{format(new Date(blog.publishedAt), "yyyy年MM月dd日 HH:mm:ss")}</time></p>
     <div class="post" set:html={blog.content} />
   </main>
 </Layout>
@@ -40,6 +42,6 @@ const blog = await getNovelDetail(contentId as string)
     max-width: 100%;
   }
   p {
-    margin: 8px;
+    margin: 8px 0;
   }
 </style>

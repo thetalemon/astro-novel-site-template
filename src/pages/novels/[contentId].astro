@@ -18,9 +18,11 @@ const blog = await getNovelDetail(contentId as string)
 
 <Layout title="astro novel site template">
   <main>
-    <h1 class="title">{blog.title}</h1>
-    <p class="publishedAt"><time>{format(new Date(blog.publishedAt), "yyyy年MM月dd日 HH:mm:ss")}</time></p>
-    <div class="post" set:html={blog.content} />
+    <section class="articleHeaderArea">
+      <h1 class="title">{blog.title}</h1>
+      <p class="publishedAt"><time>{format(new Date(blog.publishedAt), "yyyy年MM月dd日 HH:mm:ss")}</time></p>
+    </section>
+    <article class="post" set:html={blog.content} />
   </main>
 </Layout>
 
@@ -28,6 +30,11 @@ const blog = await getNovelDetail(contentId as string)
   img {
     max-width: 100%;
     height: auto;
+  }
+  a {
+    u {
+      text-decoration: none;
+    }
   }
 </style>
 
@@ -42,5 +49,11 @@ const blog = await getNovelDetail(contentId as string)
   }
   p {
     margin: 8px 0;
+  }
+  .publishedAt {
+    text-align: right;
+  }
+  .articleHeaderArea {
+    margin-bottom: 5rem;
   }
 </style>
